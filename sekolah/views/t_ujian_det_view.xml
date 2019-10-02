@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="view_t_ujian_det_tree" model="ir.ui.view">
+        <field name="name">Tree Ujian Det</field>
+        <field name="model">ujian.det</field>
+        <field name="type">tree</field>
+        <field name="priority" eval="8" />
+        <field name="arch" type="xml">
+            <tree>
+                <field name="mata_pelajaran_id" />
+                <field name="nilai" />
+            </tree>
+        </field>
+    </record>
+    <record id="view_t_ujian_det_form" model="ir.ui.view">
+        <field name="name">Form Ujian Det</field>
+        <field name="model">ujian.det</field>
+        <field name="type">form</field>
+        <field name="priority" eval="8" />
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="mata_pelajaran_id" />
+                        </group>
+                        <group>
+                            <field name="nilai" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_t_ujian_det" model="ir.actions.act_window">
+        <field name="name">Ujian Det</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ujian.det</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+</odoo>

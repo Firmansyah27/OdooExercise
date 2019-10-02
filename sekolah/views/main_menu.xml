@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<odoo>
+    <menuitem id="menu_sekolah" name="Sekolah" />
+    <menuitem id="menu_siswa" name="Siswa" parent="menu_sekolah" action="sekolah.action_siswa" sequence="99" />
+    <menuitem id="menu_mata_pelajaran" name="Mata Pelajaran" parent="menu_sekolah" action="sekolah.action_mata_pelajaran" sequence="99" />
+    <menuitem id="menu_t_ujian" name="Ujian" parent="menu_sekolah" action="sekolah.action_t_ujian" sequence="99" />
+</odoo>

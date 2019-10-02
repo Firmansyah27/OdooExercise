@@ -1,0 +1,40 @@
+<odoo>
+    <record id="view_evaluasi_det_tree" model="ir.ui.view">
+        <field name="name">Evaluasi Det Tree</field>
+        <field name="model">evaluasi.det</field>
+        <field name="type">tree</field>
+        <field name="priority" eval="8" />
+        <field name="arch" type="xml">
+            <tree>
+                <field name="siswa_id" />
+                <field name="nilai" />
+            </tree>
+        </field>
+    </record>
+    <record id="view_evaluasi_det_form" model="ir.ui.view">
+        <field name="name">Evaluasi Det Form</field>
+        <field name="model">evaluasi.det</field>
+        <field name="type">form</field>
+        <field name="priority" eval="8" />
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="siswa_id" />
+                    </group>
+                    <group>
+                        <field name="nilai" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_evaluasi_det" model="ir.actions.act_window">
+        <field name="name">Evaluasi</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">evaluasi.det</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+</odoo>

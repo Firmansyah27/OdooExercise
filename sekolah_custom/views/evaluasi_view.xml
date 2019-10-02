@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="view_evaluasi_tree" model="ir.ui.view">
+        <field name="name">Evaluasi Tree</field>
+        <field name="model">evaluasi</field>
+        <field name="type">tree</field>
+        <field name="priority" eval="8" />
+        <field name="arch" type="xml">
+            <tree decoration-danger="rata_rata &lt; '60'">
+                <field name="ekstrakur_id" />
+                <field name="trainer_id" />
+                <field name="rata_rata" />
+            </tree>
+        </field>
+    </record>
+    <record id="view_evaluasi_form" model="ir.ui.view">
+        <field name="name">Evaluasi Form</field>
+        <field name="model">evaluasi</field>
+        <field name="type">form</field>
+        <field name="priority" eval="8" />
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="ekstrakur_id" />
+                        <field name="trainer_id" />
+                        <field name="rata_rata" />
+                    </group>
+                    <notebook>
+                        <page string="Daftar Nilai" name="daftar_nilai">
+                            <field name="evaluasi_det_ids" />
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_evaluasi" model="ir.actions.act_window">
+        <field name="name">Evaluasi</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">evaluasi</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+    <menuitem id="evaluasi_menu" name="Evaluasi" sequence="101" parent="sekolah.menu_sekolah" action="action_evaluasi" />
+</odoo>

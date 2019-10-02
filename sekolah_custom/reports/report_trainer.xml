@@ -1,0 +1,64 @@
+<odoo>
+    <record model="report.paperformat" id="paperformat_attendance_recap_report">
+        <field name="name">paperformat.attendance.recap.report</field>
+        <field name="default" eval="True" />
+        <field name="format">A4</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">30</field>
+        <field name="margin_right">5</field>
+        <field name="margin_bottom">10</field>
+        <field name="margin_left">5</field>
+        <field name="header_line" eval="False" />
+        <field name="header_spacing">20</field>
+        <field name="dpi">90</field>
+    </record>
+    <report id="report_trainer" model="trainer" string="Laporan Trainer" name="sekolah_custom.report_trainer_template_view" file="sekolah_custom.report_trainer_template_view" report_type="qweb-pdf" />
+    <template id="report_trainer_template_view">
+        <t t-call="web.html_container">
+            <div class="header" style="border-bottom: 2px solid black">
+                <h3 class="text-center">Laporan Trainer</h3>
+            </div>
+            <div class="article">
+                <t t-foreach="docs" t-as="o">
+                    <tbody>
+                        <tr>
+                            <td>
+                            Trainer: <span t-field="o.name" /></td>
+                        </tr>
+                    </tbody>
+                    <t t-foreach="o.evaluasi_ids" t-as="e">
+                        <table class="table table-condensed table-bordered" style="width: 100%">
+                            <t t-foreach="e.ekstrakur_id" t-as="ek">
+                                <tr>
+                                    <td>
+                                    Ekstrakulikuler: <span t-field="ek.name" /></td>
+                                </tr>
+                            </t>
+                            <t t-foreach="e.evaluasi_det_ids" t-as="eid">
+                                <t t-foreach="eid.siswa_id" t-as="s">
+                                    <tr>
+                                        <td>
+                                            <span t-esc="s.name" />
+                                        </td>
+                                        <td>
+                                            <span t-esc="eid.nilai" />
+                                        </td>
+                                    </tr>
+                                </t>
+                            </t>
+                            <tr>
+                                <td>
+                                Rata - Rata:
+                                </td>
+                                <td>
+                                    <span t-esc="e.rata_rata" />
+                                </td>
+                            </tr>
+                        </table>
+                    </t>
+                </t>
+            </div>
+        </t>
+    </template>
+</odoo>

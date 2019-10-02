@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_ubah_kelas_wizard_form" model="ir.ui.view">
+        <field name="name">Ubah Kelas</field>
+        <field name="model">ubah.kelas</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="siswa_ids" widget="many2many_list" />
+                        <field name="kelas" />
+                    </group>
+                    <footer>
+                        <button name="set_siswa_kelas" string="Simpan" class="oe_right oe_hightlight" type="object" />
+                        <button string="Batal" class="oe_right" special="cancel" />
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <act_window id="action_ubah_kelas" name="Ubah Kelas" res_model="ubah.kelas" src_model="siswa" view_mode="form" target="new" multi="True" />
+</odoo>

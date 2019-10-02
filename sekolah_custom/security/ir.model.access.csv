@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ekstrakul_internal_user,sekolah_custom_ekstrakul,model_ekstrakul,base.group_user,1,1,1,1
+access_trainer_internal_user,sekolah_custom_trainer,model_trainer,base.group_user,1,1,1,1
+access_evaluasi_internal_user,sekolah_custom_evaluasi,model_evaluasi,base.group_user,1,0,0,1
+access_evaluasi_det_internal_user,sekolah_custom_evaluasi_det,model_evaluasi_det,base.group_user,1,1,1,1

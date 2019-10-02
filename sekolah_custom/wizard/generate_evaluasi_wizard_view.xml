@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="view_generate_evaluasi_wizard_form" model="ir.ui.view">
+        <field name="name">Generate Evaluasi</field>
+        <field name="model">generate.evaluasi</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="ekstrakul_id" />
+                        <field name="trainer_id" />
+                    </group>
+                    <notebook>
+                        <page string="Daftar Nilai" name="daftar_nilai">
+                            <field name="generate_evaluasi_det_ids">
+                                <tree create="true" delete="true" editable="true">
+                                    <field name="siswa_id" readonly="1" force_save="1" />
+                                    <field name="nilai" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                    <footer>
+                        <button name="set_generate_evaluasi" string="Generate Evaluasi" class="oe_right oe_hightlight" type="object" />
+                        <button string="Batal" class="oe_right" special="cancel" />
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
